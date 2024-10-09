@@ -1,5 +1,4 @@
-
-//Write a C++ program to reverse the elements of an array
+//write a C++ program to reverse the elements of an array.
 #include<iostream>
 using namespace std;
 void reverseArray(int arr[], int size) {
