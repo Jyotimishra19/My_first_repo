@@ -1,4 +1,5 @@
-#include <iostream>
+//write a C++ program to segregate even and odd numbers in an array.
+#include<iostream>
 #include <vector>
 
 std::vector<int> segregateArray(const std::vector<int>& arr) {
