@@ -1,4 +1,7 @@
 //write a C++ program to segregate even and odd numbers in an array.
+//Input: arr = [12, 34, 45, 9, 8, 90, 3]
+//Output: [12, 34, 8, 90, 45, 9, 3]
+
 #include<iostream>
 #include <vector>
 
