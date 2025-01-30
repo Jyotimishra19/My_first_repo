@@ -1,0 +1,250 @@
+
+Question:
+
+Write a program to implement a banking system with the following functionalities:
+
+1. Deposit Money: The user should be able to deposit a certain amount into their bank account, which will increase the balance.
+
+
+2. Withdraw Money: The user should be able to withdraw a certain amount from their account, and the balance should decrease. If the withdrawal amount exceeds the available balance, display an error message.
+
+
+3. Display Account Details: The program should display the account holder's name, account type, account number, and current balance.
+
+
+4. Quit: The user can quit the program when they are done.
+
+
+//Write a program to implement a banking system with the following functionalities
+//Deposit money 
+//Withdraw money 
+//Display Account Details 
+#include <iostream>
+#include <cstring> // For string operations
+using namespace std;
+
+// Class representing the banking system
+class Bank {
+private:
+    char name[40];    // Account holder's name
+    char actype[40];  // Account type (e.g., Savings, Current)
+    int bal;          // Account balance
+    int acno;         // Account number
+
+public:
+    // Constructor to initialize account details
+    Bank() {
+        cout << "Enter Account Name: ";
+        cin.ignore(); // To handle leftover newline character
+        cin.getline(name, 40); // Input for account holder's name
+        cout << "Enter Account Type: ";
+        cin.getline(actype, 40); // Input for account type
+        cout << "Enter Account Number: ";
+        cin >> acno; // Input for account number
+        cout << "Enter Opening Balance: ";
+        cin >> bal; // Input for initial balance
+    }
+
+    // Function to deposit money into the account
+    void deposit(int amt) {
+        bal += amt; // Add amount to the balance
+        cout << "Balance after deposit: " << bal << endl;
+        system("pause"); // Pause to view the output
+    }
+
+    // Function to withdraw money from the account
+    void withdraw(int amt) {
+        if (amt > bal) {
+            // Check if withdrawal amount is greater than balance
+            cout << "Sorry, your balance is less than the amount..." << endl;
+        } else {
+            bal -= amt; // Deduct amount from the balance
+            cout << "Balance after withdrawal: " << bal << endl;
+        }
+        system("pause"); // Pause to view the output
+    }
+
+    // Function to display account details
+    void display() {
+        cout << "-------Account Details----------" << endl;
+        cout << "Account Name: " << name << endl;
+        cout << "Account Type: " << actype << endl;
+        cout << "Account No: " << acno << endl;
+        cout << "Current Balance: " << bal << endl;
+        system("pause"); // Pause to view the output
+    }
+};
+
+int main() {
+    // Creating an object of the Bank class to initialize account
+    Bank objBank;
+    int amount, choice;
+
+    // Menu-driven program
+    do {
+        system("cls"); // Clear the screen for better display
+        cout << "-------Main Menu----------" << endl;
+        cout << "1: Deposit Money" << endl;
+        cout << "2: Withdraw Money" << endl;
+        cout << "3: Display Account Details" << endl;
+        cout << "4: Quit" << endl;
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        // Handling user choice using switch-case
+        switch (choice) {
+            case 1:
+                // Deposit money
+                cout << "Enter amount to deposit: ";
+                cin >> amount;
+                objBank.deposit(amount);
+                break;
+
+            case 2:
+                // Withdraw money
+                cout << "Enter amount to withdraw: ";
+                cin >> amount;
+                objBank.withdraw(amount);
+                break;
+
+            case 3:
+                // Display account details
+                objBank.display();
+                break;
+
+            case 4:
+                // Exit the program
+                cout << "Thank you for using our banking system!" << endl;
+                exit(0);
+
+            default:
+                // Handle invalid choices
+                cout << "Invalid choice. Please try again." << endl;
+                system("pause"); // Pause to allow the user to see the error message
+        }
+    } while (true); // Loop continues until user chooses to quit
+
+    return 0;
+}
+
+
+
+// divide program in section 
+
+
+
+1. Header Files
+
+#include <iostream>
+#include <cstring> // For string operations if needed
+using namespace std;
+
+
+---
+
+2. Class Definition
+
+class Bank {
+private:
+    char name[40], actype[40];
+    int bal, acno;
+
+public:
+    Bank() { 
+        // Constructor to initialize account details
+        cout << "Enter Account Name: ";
+        cin.ignore(); 
+        cin.getline(name, 40);
+        cout << "Enter Account Type: ";
+        cin.getline(actype, 40);
+        cout << "Enter Account Number: ";
+        cin >> acno;
+        cout << "Enter Opening Balance: ";
+        cin >> bal;
+    }
+
+
+---
+
+3. Member Functions
+
+Deposit Function
+
+
+void deposit(int amt) {
+    bal += amt;
+    cout << "Balance after deposit: " << bal << endl;
+}
+
+Withdraw Function
+
+
+void withdraw(int amt) {
+    if (amt > bal) {
+        cout << "Sorry, your balance is less than the amount..." << endl;
+    } else {
+        bal -= amt;
+        cout << "Balance after withdrawal: " << bal << endl;
+    }
+}
+
+
+Display Function
+
+
+void display() {
+    cout << "-------Account Details----------" << endl;
+    cout << "Account Name: " << name << endl;
+    cout << "Account Type: " << actype << endl;
+    cout << "Account No: " << acno << endl;
+    cout << "Current Balance: " << bal << endl;
+}
+
+
+---
+
+
+4. Main Function
+
+int main() {
+    Bank objBank;
+    int amount, choice;
+
+    do {
+        cout << "-------Main Menu----------" << endl;
+        cout << "1: Deposit Money" << endl;
+        cout << "2: Withdraw Money" << endl;
+        cout << "3: Display Account Details" << endl;
+        cout << "4: Quit" << endl;
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                cout << "Enter amount to deposit: ";
+                cin >> amount;
+                objBank.deposit(amount);
+                break;
+
+            case 2:
+                cout << "Enter amount to withdraw: ";
+                cin >> amount;
+                objBank.withdraw(amount);
+                break;
+
+            case 3:
+                objBank.display();
+                break;
+
+            case 4:
+                exit(0);
+
+            default:
+                cout << "Invalid choice. Please try again." << endl;
+        }
+    } while (true);
+
+    return 0;
+}
+
+
